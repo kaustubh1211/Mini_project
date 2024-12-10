@@ -4,6 +4,9 @@ const mysql = require("mysql");
 const cors = require("cors");
 app.use(cors());
 app.use(express.json());
+
+
+//db connection with sql 
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -17,7 +20,7 @@ db.connect(function (err) {
 });
 
 app.post("/api/product", (req, res) => {
-  console.log("Request body:", req.body); // Debugging log
+  console.log("Request body:", req.body); 
 
   const { name, quantity } = req.body;
   if (!name || !quantity) {
